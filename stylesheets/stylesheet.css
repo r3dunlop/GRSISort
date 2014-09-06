@@ -59,8 +59,12 @@ body {
 a {
   color: #2879d0;
 }
+a:link {
+    transition: .75s;
+    color: #2879d0;
+}
 a:hover {
-  color: #2268b2;
+    color: #000000;
 }
 
 header {
@@ -122,6 +126,16 @@ aside#sidebar {
 aside#sidebar p.repo-owner,
 aside#sidebar p.repo-owner a {
   font-weight: bold;
+}
+
+#navigation a {
+    display: block;
+    padding: 20px 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+
 }
 
 #downloads {
