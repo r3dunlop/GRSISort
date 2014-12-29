@@ -11,20 +11,19 @@ using namespace TGRSIFunctions;
 
 ////////////////////////////////////////////////////////////////
 //                                                            //
-// TPeak                                                      //
+// TMultiPeak                                                 //
 //                                                            //
-// This Class is used to represent fitted data that is        //
-// Gaussian like in nature (ie centroid and area).            //
+// This Class is used to hold multiple TPeak's. This is used  //
+// when many peaks share the same background.                 //
 //                                                            //
 ////////////////////////////////////////////////////////////////
 
-class TPeak : public TGRSIFit {
+class TMultiPeak : public TGRSIFit {
  public: 
    //ctors and dtors
-   virtual ~TPeak();
- //  TPeak(const TPeak &copy);
-   TPeak(Double_t cent, Double_t xlow = 0, Double_t xhigh = 0, TH1* fithist = 0, Option_t* type = "gsc");
-   TPeak():TGRSIFit(){}; //I might make it so if you call this ctor, the TPeak yells at you since it's a fairly useless call anyway
+   virtual ~TMultiPeak();
+   TMultiPeak(Double_t cent, Double_t xlow = 0, Double_t xhigh = 0, TH1* fithist = 0, Option_t* type = "gsc");
+   TMultiPeak():TGRSIFit(){}; //I might make it so if you call this ctor, the TPeak yells at you since it's a fairly useless call anyway
    
  protected:
 
@@ -64,7 +63,7 @@ class TPeak : public TGRSIFit {
    Double_t farea; //->
    Double_t fd_area; //->
 
-  ClassDef(TPeak,1);
+  ClassDef(TMultiPeak,1);
 
 };
 
