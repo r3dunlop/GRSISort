@@ -47,7 +47,7 @@ libMidasFormat.so: $(OBJECTS)
 
 %Dict.cxx: $(BASE)/include/%.h
 	@printf " ${COM_COLOR}%s${DICT_COLOR}%s${NO_COLOR}" $(COMP_STRING) $@
-	@rootcling -f $@ -c $^ 2> temp.log || touch temp.errors
+	@rootcling -v -f $@ $^ #2> temp.log || touch temp.errors
 	@if test -e temp.errors; then \
 		printf "\r ${COM_COLOR}%s${DICT_COLOR}%-30s ${ERROR_COLOR}%*s${NO_COLOR}\n" $(COMP_STRING) $@ 10 $(ERROR_STRING) \
 		&& $(CAT) temp.log && \
@@ -58,7 +58,7 @@ libMidasFormat.so: $(OBJECTS)
 		else printf "\r ${COM_COLOR}%s${DICT_COLOR}%-30s ${OK_COLOR}%*s${NO_COLOR}\n" $(COMP_STRING) $@ 10  $(OK_STRING); \
 		fi;
 	@$(RM) -f temp.errors temp.log
-
+	@cp TMidasEventDict_rdict.pcm ..
 clean:
 	$(RM) $(OBJECTS) *~ *Dict* *so 
 

@@ -57,6 +57,7 @@ libGRSILoop.so: $(OBJECTS)
 		else printf "\r ${COM_COLOR}%s${DICT_COLOR}%-30s ${OK_COLOR}%*s${NO_COLOR}\n" $(COMP_STRING) $@ 10  $(OK_STRING); \
 		fi;
 	@$(RM) -f temp.errors temp.log
+	@cp TGRSILoopDict_rdict.pcm ..
 
 
 
